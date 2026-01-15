@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OnUmbela — Profile Dashboard (demo)</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f6fbf8;
+      --card:#ffffff;
+      --muted:#8b9aa3;
+      --accent:#2ea86b;
+      --accent-2:#e84c3d;
+      --soft:#f2f6f4;
+      --shadow: 0 6px 18px rgba(19,24,28,0.06);
+      --radius:12px;
+      --glass: rgba(255,255,255,0.7);
+      --container-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#f7fbf9 0%, #f2f7f5 100%);
+      color:#21303a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--container-width);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    /* Top header row */
+    .top-row{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:20px;
+      color:blue;
+      font-weight:700;
+      letter-spacing:0.3px;
+    }
+
+    .progress-wrap{
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .progress-label{font-size:13px;color:var(--muted);width:110px}
+    .progress{
+      background:#1a4b8a;
+      height:12px;
+      border-radius:999px;
+      width:100%;
+      overflow:hidden;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .progress > .bar{
+      height:100%;
+      width:80%; /* starting value */
+      background:linear-gradient(90deg,#28b96b,#2ec07b);
+      border-radius:999px;
+      transition:width 600ms ease;
+    }
+
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .contact-btn{
+      background:blue;
+      color:white;
+      padding:10px 18px;
+      border-radius:6px;
+      font-weight:600;
+      box-shadow:0 3px 8px rgba(232,76,61,0.18);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+      border:none;
+    }
+
+    /* Layout main */
+    .main{
+      display:grid;
+      grid-template-columns: 320px 1fr 320px;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* Left sidebar */
+    .sidebar{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      min-height:380px;
+    }
+    .user-head{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:8px;
+    }
+    .avatar{
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#e6f5f1,#d9efe9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:blue;
+    }
+    .username{
+      font-weight:600;
+      font-size:15px;
+      color:#2b3b44;
+    }
+
+    .menu{
+      margin-top:18px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .menu a{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:12px 10px;
+      border-radius:8px;
+      color:#2b3b44;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .menu a.active{
+      background:linear-gradient(90deg,#f0fbf7,#eaf7f0);
+      border-left:4px solid var(--accent);
+      padding-left:8px;
+    }
+    .muted{
+      color:var(--muted);
+      font-weight:500;
+      font-size:13px;
+      margin-top:12px;
+    }
+
+    .verified-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(46,176,123,0.08);
+      color:var(--accent);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      margin-top:14px;
+      width:max-content;
+      box-shadow: 0 2px 8px rgba(46,176,123,0.06);
+      font-size:13px;
+    }
+
+    .info-list{
+      margin-top:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Center content (mostly blank in screenshot) */
+    .center{
+      background:transparent;
+      min-height:380px;
+      padding:0 6px;
+    }
+
+    /* Right panel - Messages */
+    .messages{
+      background:var(--card);
+      border-radius:12px;
+      padding:14px;
+      box-shadow:var(--shadow);
+      min-height:180px;
+    }
+    .messages h3{
+      margin:0 0 10px 0;
+      font-size:15px;
+    }
+    .search{
+      display:flex;
+      gap:8px;
+      margin-bottom:14px;
+    }
+    .search input{
+      flex:1;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #eef3f3;
+      background:var(--soft);
+      outline:none;
+      font-size:13px;
+    }
+    .message-empty{
+      text-align:center;
+      color:var(--muted);
+      padding:28px 8px;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    /* small responsive */
+    @media (max-width:1050px){
+      .main{grid-template-columns: 1fr; }
+      .messages{order:3;margin-top:12px}
+    }
+
+    /* icons small */
+    .icon{
+      width:18px;height:18px;display:inline-block;vertical-align:middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-label="OnUmbela demo dashboard">
+    <div class="top-row">
+      <div class="brand">
+        <h1>Onumbela</h1>
+      </div>
+
+      <div class="progress-wrap" aria-hidden="false">
+        <span class="progress-label">Profile Complete<strong style="color:#2a7f56">80%</strong></span>
+        <div class="progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+          <div class="bar" id="progressBar" style="width:80%"></div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div style="display:flex;align-items:center;gap:12px">
+          <!-- circular avatar small -->
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,#e6f5f1,#d9efe9);display:flex;align-items:center;justify-content:center;font-weight:700;color:#2a6b63">M</div>
+        </div>
+
+        <button class="contact-btn" title="Contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6.5v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-11" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 6.5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6.5l9 6 9-6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Contact
+        </button>
+      </div>
+    </div>
+
+    <div class="main">
+      <!-- left sidebar -->
+      <aside class="sidebar" aria-label="Left navigation">
+        <div class="user-head">
+          <div class="avatar" aria-hidden="true">MM</div>
+          <div>
+            <div class="username">md mamun madbor</div>
+            <div class="muted" style="margin-top:6px">Serve the people around you every day.</div>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Main menu">
+          <a class="active" href="umbn-38.html">
+            <!-- profile icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 20a8 8 0 0 1 16 0" stroke="#2b3b44" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Profile
+          </a>
+          <a href="#">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#2b3b44" stroke-width="1.2" stroke-linecap="round"/><path d="M6 8h12" stroke="#2b3b44" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Notifications
+          </a>
+          <a href="#">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M8 6h8M8 12h8M8 18h8" stroke="#2b3b44" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Manual
+          </a>
+        </nav>
+
+        <div class="verified-pill" style="margin-top:14px" title="Profile Verified">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M9.5 12.5l1.8 1.9L15.5 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Profile Verified By NID
+        </div>
+
+        <div class="info-list">
+          <div><strong>Phone Number</strong> <span style="float:right;color:var(--accent)">?</span></div>
+          <div><strong>Email</strong> <span style="float:right;color:var(--muted)">—</span></div>
+          <div><strong>National ID</strong> <span style="float:right;color:var(--accent)">?</span></div>
+          <div><strong>Birth Certificate</strong> <span style="float:right;color:var(--muted)">—</span></div>
+        </div>
+      </aside>
+
+      <!-- center (main) -->
+      <section class="center" aria-label="Main content">
+        <!-- left intentionally blank like screenshot; you can place forms, profile edits here -->
+      </section>
+
+      <!-- right messages -->
+      <aside class="messages" aria-label="Messages">
+        <h3>Messages</h3>
+        <div class="search">
+          <input type="search" placeholder="Search..." aria-label="Search messages"/>
+          <div style="width:40px;display:flex;align-items:center;justify-content:center">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M10.5 4v2M4 10.5h2M16.5 20v-2M20 13.5h-2M6.3 6.3l1.4 1.4M17.3 17.3l1.4 1.4M6.3 17.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="#c4d2d0" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+
+        <div class="message-empty">
+          <div style="font-weight:600;margin-bottom:6px">Welcome to your messages</div>
+          <div style="font-size:13px;color:var(--muted)">Start connecting with others.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // tiny demo: animate progress to 80% on load (you can change value)
+    (function(){
+      const bar = document.getElementById('progressBar');
+      const value = 80; // set desired percent 0-100
+      bar.style.width = '0%';
+      setTimeout(()=> bar.style.width = value + '%', 50);
+    })();
+  </script>
+</body>
+</html>

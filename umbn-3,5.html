@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Farmer Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="author" content="mamun madbor">
+<style>
+:root{
+--bg:#fafafa;
+--card:#fff;
+--accent:#1f6feb;
+--muted:#777;
+--border:#dcdcdc;
+--hand:'Patrick Hand', cursive;
+--ui:'Inter', system-ui, Arial;
+}
+
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:var(--ui);
+background:linear-gradient(180deg,#f6f8fb 0%,var(--bg) 100%);
+color:#111;
+padding:28px;
+-webkit-font-smoothing:antialiased;
+}
+
+.container{
+max-width:900px;
+margin:0 auto;
+background:var(--card);
+border-radius:10px;
+padding:24px;
+box-shadow:0 10px 30px rgba(20,30,50,0.06);
+border:1px solid var(--border);
+}
+
+
+header h1{
+margin:0 0 18px 0;
+font-family:var(--hand);
+font-size:28px;
+color:#222;
+}
+
+
+form{display:grid;grid-template-columns:1fr 220px;gap:18px 20px;align-items:start}
+
+
+/* right column photo box */
+.photo-card{
+background:#f7f7f9;
+border:2px dashed var(--border);
+border-radius:8px;
+padding:12px;
+height:260px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+}
+
+.photo-preview{
+width:80%;height:180px;background:linear-gradient(180deg,#fff,#fafafa);
+border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);
+font-size:14px;text-align:center;padding:8px;overflow:hidden
+}
+.photo-actions{width:100%;display:flex;gap:8px}
+.btn{display:inline-block;padding:8px 12px;border-radius:6px;border:1px solid var(--border);background:#fff;cursor:pointer;text-decoration:none;font-size:14px}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+
+
+/* big full width inputs in left column span 2 columns */
+.full{
+grid-column:1 / span 1;
+}
+
+
+/* We'll create grouped fields under a single left column */
+.left{display:flex;flex-direction:column;gap:14px}
+
+
+.row{display:flex;gap:12px}
+.row .col{flex:1}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type="text"], input[type="email"], input[type="date"], select, textarea{
+width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);font-size:15px;background:#fff
+}
+textarea{min-height:68px;resize:vertical;padding-top:10px}
+
+
+/* large stylized inputs to match the sketch feel */
+.big-input input{padding:18px 16px;font-size:18px;border-radius:10px}
+
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+
+.file-input{display:flex;gap:8px;align-items:center}
+.file-input input[type=file]{display:none}
+.file-input .fake{flex:1;padding:10px 12px;border-radius:8px;border:1px dashed var(--border);background:#fff;text-align:center}
+
+
+.footer-row{grid-column:1 / -1;display:flex;gap:12px}
+
+
+.label-hand{font-family:var(--hand);font-size:18px;color:#222;margin-bottom:6px}
+
+
+/* Responsive */
+@media (max-width:840px){
+form{grid-template-columns:1fr;}
+.photo-card{height:160px}
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="container">
+<header>
+<h1>Farmer form</h1>
+</header>
+
+
+<form id="riderForm">
+<div class="left">
+<div class="big-input">
+<label class="label-hand">Fast name</label>
+<input type="text" name="firstName" placeholder="Enter first name" />
+</div>
+
+
+<div class="row">
+<div class="col">
+<label>Last name</label>
+<input type="text" name="lastName" placeholder="Last name" />
+</div>
+<div style="width:160px">
+<label>Date</label>
+<input type="date" name="dob" />
+</div>
+<div style="width:140px">
+<label>gender</label>
+<select name="gender">
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+</div>
+
+<div>
+<label class="label-hand">Fathers name</label>
+<input type="text" name="father" placeholder="Father's full name" />
+</div>
+
+
+<div>
+<label class="label-hand">Mothers name</label>
+<input type="text" name="mother" placeholder="Mother's full name" />
+</div>
+
+
+<div class="row">
+<div style="flex:1">
+<label>NID</label>
+<input type="text" name="nid" placeholder="National ID No." />
+</div>
+<div style="width:160px">
+<label>Upload NID</label>
+    <input type="file" name="certificate" accept=".pdf,.jpg,.png">
+</div>
+</div>
+
+
+<div class="row">
+<div style="flex:1">
+<label>Vagitabels photo</label>
+<select>
+<option value="0.15">Select photo</option>
+<option>Photo A</option>
+<option>Photo B</option>
+<option>Photo C</option>
+</select>
+</div>
+<div style="flex:1">
+    <label>Upload flie</label>
+    <input type="file" name="certificate" accept=".pdf,.jpg,.png">
+  </div>
+</div>
+
+
+<div style="margin-top:6px">
+<label>phone:</label>
+<div class="two-col">
+<input type="text" name="phone" placeholder="Phone number" />
+<input type="email" name="email" placeholder="Mail" />
+</div>
+</div>
+
+
+<div>
+<label>Present Address:</label>
+<textarea name="address" placeholder="Full address"></textarea>
+</div>
+<div>
+<label>Permanent Address:</label>
+<textarea name="address" placeholder="Full address"></textarea>
+</div>
+
+</div>
+
+
+<!-- right column -->
+<aside class="photo-card">
+<div class="photo-preview" id="photoPreview">Photo Upload</div>
+<div class="photo-actions">
+<label class="btn" style="flex:1;text-align:center"><input type="file" id="photoInput" accept="image/*" style="display:none">Upload Photo</label>
+</div>
+</aside>
+
+
+<div class="footer-row" style="grid-column:1 / -1;justify-content:flex-end;margin-top:6px">
+<button type="reset" class="btn">Reset</button>
+<button type="submit" class="btn primary"><a href="umbn-38.html">Submit</a></button>
+</div>
+</form>
+</div>
+
+<script>
+const photoInput = document.getElementById('photoInput');
+const photoPreview = document.getElementById('photoPreview');
+const downloadBtn = document.getElementById('downloadPhoto');
+
+
+// click preview to open file picker
+photoPreview.addEventListener('click', ()=> photoInput.click());
+photoInput.addEventListener('change', (e)=>{
+const f = e.target.files[0];
+if(!f) return;
+const url = URL.createObjectURL(f);
+photoPreview.style.background = `url(${url}) center/cover no-repeat`;
+photoPreview.textContent = '';
+// attach selected file to download button
+downloadBtn.dataset.fileUrl = url;
+downloadBtn.dataset.fileName = f.name;
+});
+
+
+downloadBtn.addEventListener('click', ()=>{
+const url = downloadBtn.dataset.fileUrl;
+const name = downloadBtn.dataset.fileName || 'photo.png';
+if(!url) { alert('No file selected'); return }
+const a = document.createElement('a');
+a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+});
+
+
+// simple submit handler
+document.getElementById('riderForm').addEventListener('submit', (e)=>{
+e.preventDefault();
+alert('Form submitted (demo)');
+});
+</script>
+</body>
+</html>

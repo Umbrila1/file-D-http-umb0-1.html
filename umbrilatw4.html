@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="mamun madbor">
+<title>Smooth Carousel</title>
+<style>
+/* === TOP BUTTONS === */
+.top-buttons {
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 40px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.bikeriter-button{
+background-color: rgb(200,0,0);
+color: white;
+border: none;
+height: 36px;
+width: 105px;
+border-radius: 30px;
+cursor: pointer;
+font-size: 15px;
+margin-left: 0px;
+}
+
+.bikeriter-button:hover{
+background-color: green;
+}
+
+.pikup-button{
+background-color: white;
+color: rgb(41,118,211);
+border: non;
+height: 36px;
+width: 100px;
+border-radius: 1px;
+font-size: 15px;
+cursor: pointer;
+margin-left: 30px;
+}
+
+.gip-button{
+background-color: blue;
+color: white;
+border: non;
+height: 36px;
+width: 100px;
+border-radius: 18px;
+font-size: 15px;
+cursor: pointer;
+margin-left: 30px;
+}
+
+ .gip-button:hover{
+background-color: black;
+}
+</style> 
+<hr>
+<style>
+  :root{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --ring:#e5e6eb;
+    --accent:#111827;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+    background:var(--bg);
+    color:blue(--text);
+    line-height:2.35;
+    padding:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+  }
+
+  .carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s ease;
+  }
+
+  .card{
+    flex: 0 0 320px;
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+    display:flex;
+    padding:14px;
+    margin:0 12px;
+    min-height:200px;
+    transition: transform .4s ease;
+  }
+
+  /* left: image column | right: text column */
+  .media{
+    width:42%;
+    min-width:120px;
+    border:1px solid var(--ring);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+    background:#fafafa;
+    margin-right:12px;
+  }
+
+  .content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .name{
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:.5px;
+  }
+  .line{
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .actions{
+    margin-top:auto;
+    display:flex;
+  }
+  .btn{
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid var(--accent);
+    background:#fff;
+    color:var(--accent);
+    font-weight:700;
+    cursor:pointer;
+    transition:.15s transform ease,.15s box-shadow ease;
+  }
+  .btn:active{ transform:translateY(1px) }
+
+  /* make the center card visually larger */
+  .card.featured{
+    transform: scale(1.15);
+    z-index:2;
+  }
+
+  /* navigation */
+  .carousel-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+  }
+  .nav-btn {
+    padding:10px 18px;
+    border:none;
+    border-radius:999px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+<form>
+<!-- TOP BUTTONS -->
+<div class="top-buttons">
+<button class="bikeriter-button"><a href="umbrilatw3.html">Bike Rider</a></button>
+<button class="pikup-button">Online</button>
+<button class="gip-button">Jeeps</button>
+</div>
+<center><h2>Pickup</h2></center>
+</form>
+</body>
+<hr>
+<body>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="media">
+          <svg viewBox="0 0 200 120" aria-hidden="true">
+            <rect x="12" y="56" width="140" height="36" rx="6" fill="none" stroke="#111827" stroke-width="6"/>
+            <path d="M84 56 V36 h26 l16 20" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="56" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+            <circle cx="136" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="content">
+          <div class="name">KOBIR</div>
+          <div class="line">Thana: Shibchar</div>
+          <div class="line">District: Madaripur</div>
+          <div class="actions"><button class="btn">Pickup</button></div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="media">
+          <svg viewBox="0 0 200 120" aria-hidden="true">
+            <rect x="12" y="56" width="140" height="36" rx="6" fill="none" stroke="#111827" stroke-width="6"/>
+            <path d="M84 56 V36 h26 l16 20" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="56" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+            <circle cx="136" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="content">
+          <div class="name">SUHAN</div>
+          <div class="line">Thana: Shibchar</div>
+          <div class="line">District: Madaripur</div>
+          <div class="actions"><button class="btn">Pickup</button></div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="media">
+          <svg viewBox="0 0 200 120" aria-hidden="true">
+            <rect x="12" y="56" width="140" height="36" rx="6" fill="none" stroke="#111827" stroke-width="6"/>
+            <path d="M84 56 V36 h26 l16 20" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="56" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+            <circle cx="136" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="content">
+          <div class="name">KOLIL</div>
+          <div class="line">Thana: Shibchar</div>
+          <div class="line">District: Madaripur</div>
+          <div class="actions"><button class="btn">Pickup</button></div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="media">
+          <svg viewBox="0 0 200 120" aria-hidden="true">
+            <rect x="12" y="56" width="140" height="36" rx="6" fill="none" stroke="#111827" stroke-width="6"/>
+            <path d="M84 56 V36 h26 l16 20" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="56" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+            <circle cx="136" cy="102" r="12" fill="none" stroke="#111827" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="content">
+          <div class="name">MAMUN</div>
+          <div class="line">Thana: Shibchar</div>
+          <div class="line">District: Madaripur</div>
+          <div class="actions"><button class="btn">Pickup</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="carousel-buttons">
+    <button class="nav-btn prev">⟵ Prev</button>
+    <button class="nav-btn next">Next ⟶</button>
+  </div>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const cards = Array.from(track.children);
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+
+  let currentIndex = 1; // start with 2nd card featured
+
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth + 24; // card width + margin
+    const containerCenter = track.parentElement.offsetWidth / 2;
+    const offset = containerCenter - cardWidth / 2 - cardWidth * currentIndex;
+
+    track.style.transform = `translateX(${offset}px)`;
+
+    cards.forEach((card, i) => {
+      card.classList.toggle('featured', i === currentIndex);
+    });
+  }
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < cards.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  updateCarousel();
+</script>
+</body>
+</html>

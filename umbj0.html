@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OnUmbela - Sign Up</title>
+  <meta name="author" content="mamun madbor">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .signup-box {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    .signup-box h1 {
+      color: green;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .signup-box h2 {
+      color: #F527BB;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .name-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .name-row input {
+      flex: 1;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin: 12px 0;
+      text-align: left;
+    }
+
+    .checkbox input {
+      margin-right: 8px;
+      width: auto;
+    }
+
+    .signup-box button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .signup-box button:hover {
+      background-color: darkgreen;
+    }
+
+    .signup-box .login-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .signup-box .login-link a {
+      color: green;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup-box .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h1> OnUmbela</h1>
+    <h2>Sign Up</h2>
+
+    <form action="umb0-3.html" method="get">
+      <div class="name-row">
+        <input type="text" placeholder="First Name" name="first_name" required>
+        <input type="text" placeholder="Last Name" name="last_name" required>
+      </div>
+      <input type="email" placeholder="Email" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+
+      <label class="checkbox">
+        <input type="checkbox" required>
+        I Agree to the Umbrila
+      </label>
+
+      <!-- FIXED: No <a> inside button -->
+      <button type="submit">Join Umbrila</button>
+
+      <div class="login-link">
+        Already have an account? <a href="login.html">Log in</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

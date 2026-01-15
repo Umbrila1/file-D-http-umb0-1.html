@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daily & Monthly Jobs | Onumbela</title>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<meta name="author" content="mamun madbor">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #007bff;
+  --secondary: #f4f6fc;
+  --text-dark: #222;
+  --text-light: #555;
+  --card-bg: #fff;
+  --border: #ccc;
+  --shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Patrick Hand', cursive;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f9 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* Top logo bar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: #277DF5;
+  
+}
+
+header {
+  text-align: center;
+  margin-top: 120px; /* space below fixed top bar */
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-family: 'Comic Neue', cursive;
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+header h1 span {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+header p {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  width: 280px;
+  padding: 30px 20px;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-color: var(--primary);
+}
+
+.card h3 {
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--text-light);
+  font-size: 18px;
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+
+.cta {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 12px 32px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: #0056c7;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,123,255,0.4);
+}
+
+.cta a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  padding-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- Fixed top bar with Umbrella logo -->
+<div class="top-bar">
+  <div class="logo">Onumbela</div>
+</div>
+
+<header>
+  <h1>Tell us what you need <span>done.</span></h1>
+  <p>We’ll guide you to create the perfect brief.<br>The more detail the better.</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h3>Are you looking for a job every day?</h3>
+    <p>If you want to be called<br> for work every day,<br> then apply now.</p>
+    <button class="cta"><a href="umbn-3,1.html">Daily Jobs</a></button>
+  </div>
+
+  <div class="card">
+    <h3>Are you looking for a monthly job?</h3>
+    <p>If you can't find a job anywhere,<br>register here and you will<br> definitely get a job.</p>
+    <button class="cta"><a href="umbn0-2.html">Monthly Jobs</a></button>
+  </div>
+</div>
+
+<footer>
+
+
+</body>
+</html>

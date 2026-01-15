@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile — OnUmbela (Demo)</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="author" content="mamun madbor">
+  <style>
+    :root{
+      --green:#1f8a45;
+	   --light-green:#eaf6ee;
+      --muted:#6b6b6b;
+      --panel:#f7fbf7;
+      --card-bg:#ffffff;
+      --accent:#2aa26b;
+      --border:#e6efe6;
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Inter", Arial, sans-serif;
+      background: #f4fbf9;
+      color:#123;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Top header with logo and progress */
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:18px 24px;
+      background:transparent;
+      max-width:var(--max-width);
+      margin:18px auto 0;
+    }
+    .logo{
+      font-weight:700;
+      color:#2727F5 ;
+      font-size:26px;
+      letter-spacing:1px;
+    }
+    .progress-wrap{
+      flex:1;
+      padding:6px 12px;
+    }
+    .progress{
+      height:8px;
+      background:var(--border);
+      border-radius:99px;
+      overflow:hidden;
+    }
+    .progress > i{
+      display:block;
+      height:100%;
+      width:80%;
+      background:linear-gradient(90deg,var(--green),#30b36c);
+    }
+    .top-controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-size:14px;
+    }
+    .lang-toggle{
+      border-radius:18px;
+      background:#fff;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      display:flex;
+      gap:8px;
+      align-items:center;
+      cursor:pointer;
+    }
+
+	 /* Main layout */
+    .container{
+      max-width:var(--max-width);
+      margin:18px auto;
+      display:grid;
+      grid-template-columns: 220px 1fr 1.3fr;
+      gap:18px;
+      align-items:start;
+      padding:0 24px 48px;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      background:var(--card-bg);
+      border-radius:8px;
+      border:1px solid var(--border);
+      padding:18px;
+      box-shadow:0 2px 4px rgba(15,15,15,0.02);
+      height:fit-content;
+    }
+    .sidebar nav{display:flex;flex-direction:column;gap:12px}
+    .nav-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:var(--muted);
+      font-weight:600;
+      padding:10px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+    .nav-item.active{
+      background:var(--light-green);
+      color:var(--green);
+    }
+    .verified-pill{
+      display:inline-block;
+      margin-top:18px;
+      padding:8px 10px;
+      border-radius:22px;
+      background:var(--light-green);
+      color:var(--green);
+      font-weight:600;
+      font-size:13px;
+      text-align:center;
+    }
+    .sidebar .small-list{margin-top:16px; font-size:13px; color:var(--muted)}
+    .tick{color:var(--green); margin-right:8px}
+
+    /* Avatar + actions (center column) */
+    .profile-card{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:22px;
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      min-height:420px;
+    }
+    .avatar{
+      width:150px;
+      text-align:center;
+    }
+    .avatar .photo{
+      width:120px;
+      height:120px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#111 0%, #333 100%);
+      display:inline-block;
+      color:white;
+      font-size:64px;
+      line-height:120px;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(6,80,36,0.06);
+    }
+    .username{
+      margin-top:10px;
+      font-weight:700;
+      font-size:14px;
+      color:#222;
+    }
+	
+	.subtext{font-size:13px;color:var(--muted); margin-top:6px}
+
+    .action-buttons{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-left:6px;
+      width:100%;
+      max-width:360px;
+    }
+    .action-buttons .btn{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background: #fff;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:0 1px 0 rgba(0,0,0,0.02);
+    }
+    .btn.green{ background:linear-gradient(180deg,var(--green),#1c7a3d); color:#fff; border:none}
+    .btn.outline{background:transparent}
+
+    /* Right column: profile details */
+    .details{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:18px;
+      min-height:420px;
+      position:relative;
+    }
+    .update-btn{
+      position:absolute;
+      right:18px;
+      top:18px;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:6px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:8px 36px;
+      margin-top:12px;
+    }
+    .field{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      padding:8px 0;
+      border-bottom:1px dashed #f0f6f0;
+    }
+    .label{
+      width:150px;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .value{
+      font-size:14px;
+      color:#111;
+    }
+
+    /* Address boxes */
+    .addresses{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+    .addr{
+      flex:1;
+      border:1px solid var(--border);
+      padding:12px;
+      background:var(--panel);
+      border-radius:6px;
+      font-size:13px;
+    }
+
+	  /* Responsive */
+    @media (max-width:1000px){
+      .container{ grid-template-columns: 1fr; padding:0 18px 56px; gap:12px}
+      .topbar{padding:12px 18px}
+      .avatar .photo{width:100px;height:100px;line-height:100px;font-size:48px}
+      .details-grid{grid-template-columns:1fr}
+      .update-btn{position:static;margin-top:8px;width:100%}
+    }
+  </style>
+</head>
+<body>
+
+ 
+
+ 
+    <!-- RIGHT: DETAILS -->
+    <section class="details" aria-labelledby="profile-details">
+      <button class="update-btn"><i class="fa-solid fa-pen-to-square"></i> Update Profile Info</button>
+
+      <h2 id="profile-details" style="margin:0;font-size:18px">Profile</h2>
+      <div style="font-size:13px;color:var(--muted);margin-top:2px">Name (Bengali) — md mamun madbor</div>
+
+      <div class="details-grid" aria-hidden="false">
+        <div class="field">
+          <div class="label">Name</div>
+          <div class="value">Mohammad Mamun Madbor</div>
+        </div>
+
+        <div class="field">
+          <div class="label">E-Mail</div>
+          <div class="value">mamun@example.com</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Phone</div>
+          <div class="value">01744879555</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Father Name</div>
+          <div class="value">shahabuddin madbor</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Father (Bengali)</div>
+          <div class="value">Sahabuddin madbor</div>
+        </div>
+
+		<div class="field">
+          <div class="label">Mother Name</div>
+          <div class="value">renu begum</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Marital Status</div>
+          <div class="value">unmaride</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Date of Birth</div>
+          <div class="value">1998-12-25</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Birthplace</div>
+          <div class="value">madaripur</div>
+        </div>
+
+        <div class="field">
+          <div class="label">National Identity Number</div>
+          <div class="value">4665462851</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Gender</div>
+          <div class="value">male</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Blood Group</div>
+          <div class="value">O+</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Occupation</div>
+          <div class="value">students</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Nationality</div>
+          <div class="value">Bangladeshi</div>
+        </div>
+		
+		<div class="field">
+          <div class="label">Expatriate Bangladeshi</div>
+          <div class="value">No</div>
+        </div>
+      </div>
+
+      <div class="addresses">
+        <div class="addr">
+          <strong>Present Address</strong>
+          <div style="margin-top:8px;line-height:1.4">bahadurpur,bangchra,shibchar,madaripur-7930</div>
+        </div>
+
+        <div class="addr">
+          <strong>Permanent Address</strong>
+          <div style="margin-top:8px;line-height:1.4">bahadurpur,bangchra,shibchar,madaripur-7930</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bike rider</title>
+  <meta name="author" content="mamun madbor">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      text-align: center;
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px auto;
+      width: 400px;
+      background: #f9f9f9;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100px;
+      height: 120px;
+      border-radius: 4px;
+      margin-right: 15px;
+    }
+
+    .card-content {
+      text-align: left;
+      flex: 1;
+    }
+	
+	.title {
+      color: green;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    /* phone + sms row */
+    .phone-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .phone {
+      background: #28a745;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .phone::before {
+      content: "call ";
+      margin-right: 5px;
+    }
+
+	.phone::before {
+      content: "📞 ";
+      margin-right: 5px;
+    }
+
+	
+    .sms-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sms-btn:hover {
+      background: #0056b3;
+    }
+
+    .info {
+      font-size: 14px;
+      line-height: 22px;
+    }
+	
+	 .info span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bike rider</h1>
+
+  <!-- Card Template -->
+  <div class="card">
+    <img src="dfg45.jpg" alt="Profile Photo">
+    <div class="card-content">
+      <div class="title">Rider</div>
+
+      <!-- Phone + SMS in one row -->
+      <div class="phone-row">
+        <a href="tel:0171234567" class="phone">0171234567</a>
+        <a href="sms:0171234567" class="sms-btn">SMS</a>
+      </div>
+
+      <div class="info">
+        <div><span>Sex:</span> Male</div>
+        <div><span>Name:</span> Md. Saiful Islam</div>
+        <div><span>Father's Name:</span> Md. Hafiz Uddin</div>
+        <div><span>Date of Birth:</span> 15/02/2002</div>
+        <div><span>Police Station:</span> Shibchar</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Duplicate for more workers -->
+  <div class="card">
+    <img src="dfg45.jpg" alt="Profile Photo">
+    <div class="card-content">
+      <div class="title">Rider</div>
+      <div class="phone-row">
+        <a href="tel:0171234567" class="phone">0171234567</a>
+        <a href="sms:0171234567" class="sms-btn">SMS</a>
+      </div>
+      <div class="info">
+        <div><span>Sex:</span> Male</div>
+        <div><span>Name:</span> Md. Saiful Islam</div>
+        <div><span>Father's Name:</span> Md. Hafiz Uddin</div>
+        <div><span>Date of Birth:</span> 15/02/2002</div>
+        <div><span>Police Station:</span> Shibchar</div>
+      </div>
+    </div>
+  </div>
+
+   <div class="card">
+    <img src="dfg45.jpg" alt="Profile Photo">
+    <div class="card-content">
+      <div class="title">Rider</div>
+      <div class="phone-row">
+        <a href="tel:0171234567" class="phone">0171234567</a>
+        <a href="sms:0171234567" class="sms-btn">SMS</a>
+      </div>
+      <div class="info">
+        <div><span>Sex:</span> Male</div>
+        <div><span>Name:</span> Md. Saiful Islam</div>
+        <div><span>Father's Name:</span> Md. Hafiz Uddin</div>
+        <div><span>Date of Birth:</span> 15/02/2002</div>
+        <div><span>Police Station:</span> Shibchar</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <img src="dfg45.jpg" alt="Profile Photo">
+    <div class="card-content">
+      <div class="title">Rider</div>
+      <div class="phone-row">
+        <a href="tel:0171234567" class="phone">0171234567</a>
+        <a href="sms:0171234567" class="sms-btn">SMS</a>
+      </div>
+      <div class="info">
+        <div><span>Sex:</span> Male</div>
+        <div><span>Name:</span> Md. Saiful Islam</div>
+        <div><span>Father's Name:</span> Md. Hafiz Uddin</div>
+        <div><span>Date of Birth:</span> 15/02/2002</div>
+        <div><span>Police Station:</span> Shibchar</div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

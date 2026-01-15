@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vegetable Market</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="author" content="mamun madbor">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #fdfdfd;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .market {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+    }
+
+    .veg-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .info {
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .info span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+
+    .price {
+      color: green;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* Call Button with Number */
+    .call-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #28a745;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .call-link:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vegetable Market</h1>
+
+  <div class="market">
+    <div class="card">
+      <img class="veg-img" src="potato.jpg" alt="Potato">
+      <div class="info">
+        <span>Name: Arif Madbor</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 50 /kg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="veg-img" src="tomato.jpg" alt="Tomato">
+      <div class="info">
+        <span>Name: Roman Fokir</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 35 /kg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="veg-img" src="carrot.jpg" alt="Carrot">
+      <div class="info">
+        <span>Name: Atike</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 80 /kg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="veg-img" src="dd2.jpg" alt="Pumpkin">
+      <div class="info">
+        <span>Name: Jaber Madbor</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 60 /kg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="veg-img" src="chili.jpg" alt="Chili">
+      <div class="info">
+        <span>Name: Dipu</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 120 /kg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="veg-img" src="onion.jpg" alt="Onion">
+      <div class="info">
+        <span>Name: Sojip</span>
+        <a href="tel:0171234567" class="call-link">
+          <i class="fa-solid fa-phone"></i> 0171234567
+        </a>
+        <div class="price">৳ 90 /kg</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
